@@ -1,0 +1,32 @@
+{
+  "expo": {
+    "name": "First React Native App",
+    "slug": "MyFirstNativeApp",
+    "privacy": "public",
+    "sdkVersion": "35.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "description": "This is a demo app based on the expo - react - native framework. It has very little real world value, and is meant for teaching purposes. If you're looking for an introduction to React Native, I wrote a small tutorial while i installed all the stuff myself: https://simmoe.gitbook.io/simon-moe/react-native/react-native  ",
+    "githubUrl": "https://github.com/simmoe/react-native-first-app"
+  }
+}
