@@ -1,9 +1,9 @@
 {
   "devToolsPort": 19002,
-  "expoServerPort": null,
-  "packagerPort": null,
-  "packagerPid": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null
+  "expoServerPort": 19000,
+  "packagerPort": 19001,
+  "packagerPid": 86090,
+  "expoServerNgrokUrl": "https://pg-mjk.simmoe.react-native-first-app.exp.direct",
+  "packagerNgrokUrl": "https://packager.pg-mjk.simmoe.react-native-first-app.exp.direct",
+  "ngrokPid": 86139
 }

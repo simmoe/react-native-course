@@ -1,31 +1,66 @@
 import React, {useState} from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import {
+    StyleSheet,
+    Text,
+    View,
+    Button,
+    TextInput,
+    ScrollView
+} from 'react-native'
 
 export default function App() {
-  const strings = ["Der sad to katte på et bord", "Kvittevittevitt bom bom", "Så sa' den ene hør min ven", "Sku vi ikke kravle ned igen", "Kvittevittevit bom bom"]
-  const [next, setNext] = useState(0)
-  return (
-    <View style={styles.container}>
-      <Text style={styles.standard}>{strings[next]}</Text>
-      <Button style={styles.button} onPress={() => setNext(next < strings.length - 1 ? next + 1 : 0)} title='next line, please' />
-    </View>
-  );
+    const [text,
+        setText] = useState('')
+    const [checklist,
+        setChecklist] = useState([])
+    const addItem = () => {
+        console.log(text)
+        setChecklist(checklist => [
+            ...checklist,
+            text
+        ])
+        //setText('')
+    }
+    return (
+        <View style={styles.container}>
+            <View style={styles.new}>
+                <TextInput
+                    placeholder='give me a check item'
+                    value={text}
+                    onChangeText={(txt) => setText(txt)}
+                    style={styles.textinput}/>
+                <Button title='add new item' onPress={addItem}/>
+            </View>
+            <ScrollView>
+                <View style={styles.items}>
+                    {checklist.map((item, key) => <Text key={key}>{item}</Text>)
+}
+                </View>
+            </ScrollView>
+        </View>
+    )
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#111',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  standard:{
-    marginVertical:10,
-    color:'white',
-    fontSize:24,
-    padding:12,
-  },
-  button:{
-    borderRadius: 12,
-  },  
+    container: {
+        width: '100%',
+        height: '100%'
+    },
+    new: {
+        height:'30%',
+        justifyContent: 'center',
+        width: '100%',
+        padding: 24
+    },
+    items: {
+        paddingTop: 24,
+        justifyContent: 'flex-start',
+        alignItems: 'center'
+    },
+    textinput: {
+        borderBottomWidth: StyleSheet.hairlineWidth,
+        borderBottomColor: '#aaa',
+        marginBottom: 12,
+        padding: 12
+    }
 })
