@@ -1,54 +1,24 @@
-import React, {useState} from 'react';
-import {StyleSheet, Button, View, ScrollView} from 'react-native'
-import InputItem from './components/InputItem';
-import ChecklistItem from './components/ChecklistItem';
+import React from 'react'
+import Header from './components/Header'
+import {StyleSheet, View, TouchableWithoutFeedback, Keyboard} from 'react-native'
+import StartGameScreen from './screens/StartGameScreen'
 
 export default function App() {
-    const [checklist,
-        setChecklist] = useState([])
-
-    const [isAddMode, setIsAddMode] = useState(false)
-    
-    const addItem = string => {
-        setChecklist(checklist => [
-            ...checklist,
-            string
-        ])
-        setIsAddMode(false)
-    }
-
-    const deleteItem = id => {
-        setChecklist(checklist.filter( (item, index) => index!== id ) )
-    }
-
     return (
+        <TouchableWithoutFeedback onPress={ () => Keyboard.dismiss() }>
         <View style={styles.container}>
-            <Button onPress={ () => setIsAddMode(true) } title='Add item' style={styles.btn} />
-            <InputItem setIsAddMode={setIsAddMode} visible={isAddMode} addItem={addItem} />
-            <ScrollView>
-                <View style={styles.items}>
-                    {checklist.map((item, key) => 
-                        <ChecklistItem deleteItem={deleteItem} id={key} key={key} item={item} />)}
-                </View>
-            </ScrollView>
+            <Header title='Guess a number'/>
+            <StartGameScreen />
         </View>
+        </TouchableWithoutFeedback>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
         flex:1,
-        paddingTop:44,
-        justifyContent:'center',
+        backgroundColor:'#eee',
+        justifyContent:'flex-start',
         alignItems:'center',
-    },
-    items: {
-        paddingTop: 24,
-        justifyContent: 'flex-start',
-        flex:1,
-        alignItems: 'center'
-    },
-    btn:{
-        flex:1,
     },
 })
