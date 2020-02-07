@@ -2,7 +2,8 @@ import React, {useState} from 'react'
 import Card from '../components/Card'
 import Input from '../components/Input'
 import Colors from '../constants/colors'
-import {View, Text, StyleSheet, Button, Keyboard, Alert} from 'react-native'
+import StyleConstants from '../constants/default-styles'
+import {View, Text, StyleSheet, Button, Keyboard, Alert, Image} from 'react-native'
 
 const StartGameScreen = props => {
 
@@ -38,7 +39,18 @@ const StartGameScreen = props => {
     }
     
     let confirmedOutput
-    if(confirmed) confirmedOutput = <Text>Chosen number: {selectedNumber}</Text>
+    if(confirmed) confirmedOutput = 
+        <Card style={ styles.summaryContainer }>
+            <Text>Chosen number: {selectedNumber}</Text>
+            <Button title='Start game' onPress={ () => props.onStartGame(selectedNumber)}/>
+            <View style={styles.imageContainer}>
+                <Image 
+                    source={{uri:'https://facebook.github.io/react/logo-og.png'}} 
+                    style={{height:'100%', width:'100%'}}
+                    resizeMode='cover'
+                />
+            </View>
+        </Card>
 
     return(
         <View style={styles.screen}>
@@ -52,7 +64,7 @@ const StartGameScreen = props => {
                     maxLength={2} 
                     blurOnSubmit 
                     />
-                <View style={styles.buttonContainer}>
+                <View style={StyleConstants.buttonContainer}>
                     <View style={styles.button}>
                         <Button color={Colors.primary} title='confirm' onPress={ confirmInputHandler }/>
                     </View>
@@ -60,7 +72,9 @@ const StartGameScreen = props => {
                         <Button onPress={ resetInputHandler } color={Colors.accent} title='reset'/>
                     </View>
                 </View>
-                {confirmedOutput}
+                <View>
+                    {confirmedOutput}
+                </View>
             </Card>
         </View>
     )
@@ -73,6 +87,13 @@ const styles = StyleSheet.create({
         alignItems:'center',
         paddingVertical:50,
     },
+    imageContainer:{
+        width:100,
+        height:100,
+        borderRadius:50,
+        overflow:'hidden',
+        marginVertical:12
+    },
     input:{
         width:40,
     },
@@ -80,14 +101,15 @@ const styles = StyleSheet.create({
         fontSize:30,
         marginVertical:20,
     },
-    buttonContainer: {
-        flexDirection: 'row',
-        width:'100%',
-        justifyContent:'space-evenly',
-        marginVertical:20,
-    },
     button:{
         minWidth:100,
+    },
+    summaryContainer: {
+        alignItems:'center',
+        justifyContent:'center',
+    },  
+    image:{
+        width:'80%'
     }
 })
 

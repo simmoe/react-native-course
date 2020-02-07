@@ -21,6 +21,7 @@ const styles = StyleSheet.create({
     },
     item: {
         fontSize:18,
+        fontFamily:'open-sans-bold',
         color:'#fff',
         justifyContent:'center',
         alignItems:'center',
