@@ -1,9 +1,9 @@
 {
   "devToolsPort": 19002,
-  "expoServerPort": null,
-  "packagerPort": null,
-  "packagerPid": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null
+  "expoServerPort": 19000,
+  "packagerPort": 19001,
+  "packagerPid": 16844,
+  "expoServerNgrokUrl": "https://hh-md8.simmoe.react-native-course.exp.direct",
+  "packagerNgrokUrl": "https://packager.hh-md8.simmoe.react-native-course.exp.direct",
+  "ngrokPid": 16855
 }

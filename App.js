@@ -1,31 +1,33 @@
 import React, {useState} from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
+import { createStore, combineReducers } from 'redux'
+import { Provider } from 'react-redux'
+import productsReducer from './store/reducers/products'
+import ShopNavigator from './navigation/ShopNavigator'
+
+//this will eventually combine the differerent reducers
+const rootReducer = combineReducers({
+  products:productsReducer
+})
+
+//one store to rule them all
+const store = createStore(rootReducer)
 
 export default function App() {
-  const strings = ["Der sad to katte på et bord", "Kvittevittevitt bom bom", "Så sa' den ene hør min ven", "Sku vi ikke kravle ned igen", "Kvittevittevit bom bom"]
-  const [next, setNext] = useState(0)
-  return (
-    <View style={styles.container}>
-      <Text style={styles.standard}>{strings[next]}</Text>
-      <Button style={styles.button} onPress={() => setNext(next < strings.length - 1 ? next + 1 : 0)} title='next line, please' />
-    </View>
-  );
+  return(
+    // Setup the Provider with the global store 
+    <Provider store={store}>
+      <ShopNavigator />
+    </Provider>
+  )
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#111',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  standard:{
-    marginVertical:10,
-    color:'white',
-    fontSize:24,
-    padding:12,
-  },
-  button:{
-    borderRadius: 12,
-  },  
+  container:{
+    flex:1,
+    height:'100%',
+    width:'100%',
+    justifyContent:'center',
+    alignItems:'center',
+  }
 })
