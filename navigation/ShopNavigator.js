@@ -1,15 +1,18 @@
 //We dont actually export the module, instead we create an 'app container'i
 
 //expo install react-navigation
-import { createStackNavigator, createAppContainer } from 'react-navigation'
+import {
+    createStackNavigator,
+    createDrawerNavigator,
+    createAppContainer
+} from 'react-navigation';
 import { Platform } from 'react-native'
 
 import ProductsOverviewScreen from '../screens/shop/ProductsOverviewScreen'
 import CartScreen from '../screens/shop/CartScreen'
 import OrderScreen from '../screens/shop/OrderScreen'
 import ProductDetailScreen from '../screens/shop/ProductDetailScreen'
-import colors from '../constants/colors'
-import { Colors } from 'react-native/Libraries/NewAppScreen'
+import Colors from '../constants/colors'
  
 
 
