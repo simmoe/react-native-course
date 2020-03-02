@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "First React Native App",
-    "slug": "MyFirstNativeApp",
+    "name": "Guess it man ",
+    "slug": "guessit",
     "privacy": "public",
     "sdkVersion": "35.0.0",
     "platforms": [
@@ -24,9 +24,14 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.yourcompany.yourappname",
+      "buildNumber": "1.0.0"
     },
-    "description": "This is a demo app based on the expo - react - native framework. It has very little real world value, and is meant for teaching purposes. If you're looking for an introduction to React Native, I wrote a small tutorial while i installed all the stuff myself: https://simmoe.gitbook.io/simon-moe/react-native/react-native  ",
-    "githubUrl": "https://github.com/simmoe/react-native-first-app"
+    "android": {
+      "package": "com.simmoe.guessit",
+      "versionCode": 1
+    },
+    "description": "This is a demo app based on the expo - react - native framework. It has very little real world value, and is meant for teaching purposes. If you're looking for an introduction to React Native, I wrote a small tutorial while i installed all the stuff myself: https://simmoe.gitbook.io/simon-moe/react-native/react-native  "
   }
 }
